@@ -5,9 +5,12 @@ export default function cleanSet(set, startString) {
     || startString.length === 0) {
     return '';}
 
-  const stringSet = [];
-  [..._set].forEach((x) => {
-    if (x && x.indexOf(startString) === 0) stringSet.push(x.replace(startString, ''));
-  });
-  return stringSet.join('-');
+  // returns string created by joining all elements
+  for (const item of set) {
+    if (item && item.startsWith(startString)) {
+      list.push(item.slice(startString.length));
+    }
+  }
+
+  return list.join('-');
 }
